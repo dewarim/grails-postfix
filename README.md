@@ -7,15 +7,15 @@ plugin assumes that the account running the code has write permissions to the vm
 
 ##Configuration options:
 
-  grails{  
-      plugin{  
-          postfix{    
-            defaultDomain = 'seaturtle'    
-            virtualMailboxPath = '/etc/postfix/vmailbox'  
-            testing = false  
-          }  
-      }  
-  }  
+    grails{  
+        plugin{  
+            postfix{    
+              defaultDomain = 'seaturtle'    
+              virtualMailboxPath = '/etc/postfix/vmailbox'  
+              testing = false  
+            }  
+        }  
+    }  
 
 Code Maturity: alpha! Needs testing, do not use on production systems!
 
