@@ -27,7 +27,7 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
         build 'org.codehaus.gpars:gpars:1.0-beta-1'
-        
+        runtime 'postgresql:postgresql:9.1-901.jdbc4'
     }
 
     plugins {
