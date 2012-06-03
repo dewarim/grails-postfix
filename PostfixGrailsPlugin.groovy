@@ -17,7 +17,7 @@
  */
 class PostfixGrailsPlugin {
     // the plugin version
-    def version = "0.1.0"
+    def version = "0.1.1"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0 > *"
     // the other plugins this plugin depends on
@@ -37,7 +37,7 @@ Manage user accounts in a Postfix mail server via Grails.
 '''
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/postfix"
+//    def documentation = "http://grails.org/plugin/postfix"
 
     // Extra (optional) plugin metadata
 
