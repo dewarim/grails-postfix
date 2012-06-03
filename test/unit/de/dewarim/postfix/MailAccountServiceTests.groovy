@@ -20,17 +20,22 @@ package de.dewarim.postfix
 
 
 import grails.test.mixin.*
+import org.apache.commons.codec.digest.DigestUtils
+import grails.test.mixin.domain.DomainClassUnitTestMixin
 
 /**
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
  */
 @TestFor(MailAccountService)
+@TestMixin(DomainClassUnitTestMixin)
 class MailAccountServiceTests {
 
-    def mailAccountService
-    
+    def mailAccountService   
     
     void testVirtualMailbox() {
+        
+        mockDomain(Auth)
+        
         def virtualMailBox = """ingo@seaturtle seaturtle/ingo/
 foo@seaturtle seaturtle/foo/
 bar@seahorse seahorse/bar/""" 
@@ -59,7 +64,8 @@ bar@seahorse seahorse/bar/"""
         assert users.contains('bar@seahorse')
         
         // add a user:
-        result = (PostfixConfigResult) mailAccountService.addAccount('postmistress', 'seahorse')
+        def pwHash = DigestUtils.shaHex('msPass'+'aSalt')
+        result = (PostfixConfigResult) mailAccountService.addAccount('postmistress', 'seahorse', pwHash)
         assert ! result.failed
         users = mailAccountService.listAccounts('seahorse').users
         assert users.size() == 2
@@ -72,7 +78,7 @@ bar@seahorse seahorse/bar/"""
         assert users.size() == 1
         assert ! users.contains('postmistress@seahorse')
         assert tempBox.text.contains('#postmistress@seahorse')
-        result = (PostfixConfigResult) mailAccountService.addAccount('postmistress', 'seahorse')
+        result = (PostfixConfigResult) mailAccountService.addAccount('postmistress', 'seahorse', pwHash)
         assert ! result.failed
         
         // delete a user:

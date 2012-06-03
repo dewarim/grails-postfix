@@ -17,16 +17,21 @@
  */
 package de.dewarim.postfix
 
-/**
- * A command for the PostfixConfigActor
- * 
- */
-class ConfigCommand {
+class Auth {
     
-    def config
+    static mapping = {
+        datasource('dovecot_mail')
+    }
+    
+    static constraints = {
+        
+    }
+    
+    String email
+    String mailDir
+    String pwd
     String username
-    String mailDomain
-    String passwordHash
-    CommandType type
+    String domain
+    Boolean active = true
     
 }

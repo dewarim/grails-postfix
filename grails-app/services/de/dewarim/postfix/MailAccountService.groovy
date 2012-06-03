@@ -47,11 +47,12 @@ class MailAccountService {
      * @param domain the name of the mail domain (the part after the @ in user@domain)
      * @return a PostfixConfigResult to determine if the command succeeded.
      */
-    def addAccount(String name, String domain){
+    def addAccount(String name, String domain, String passwordHash){
         def configCommand = new ConfigCommand(type: CommandType.ADD_USER, 
                 config: grailsApplication.mergedConfig?.grails?.plugin?.postfix,
                 username: name,
-                mailDomain: domain
+                mailDomain: domain,
+                passwordHash:passwordHash
         )
         configActor.sendAndWait(configCommand)
     }

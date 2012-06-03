@@ -17,16 +17,25 @@
  */
 package de.dewarim.postfix
 
+
+
+import grails.test.mixin.*
+import org.junit.*
+
 /**
- * A command for the PostfixConfigActor
- * 
+ * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
  */
-class ConfigCommand {
-    
-    def config
-    String username
-    String mailDomain
-    String passwordHash
-    CommandType type
-    
+@TestFor(Auth)
+class AuthTests {
+
+    void testCreateAuth() {
+        def auth = new Auth(domain: 'dewarim.de', username: 'postmaster', 
+                email: 'postmaster@dewarim.de', pwd: 'pwdHash')
+        auth.save(failOnError: true)
+        def bAuth = Auth.findByEmail('postmaster@dewarim.de')
+        assert bAuth : 'Could not find auth entry.'
+        bAuth.delete()
+        def cAuth = Auth.findByEmail('postmaster@dewarim.de')
+        assert cAuth == null
+    }
 }
