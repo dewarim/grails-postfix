@@ -5,6 +5,8 @@ grails.project.target.level = 1.6
 grails.project.source.level = 1.6
 //grails.project.war.file = "target/${appName}-${appVersion}.war"
 
+grails.project.repos.default = "myRepo"
+
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
@@ -13,6 +15,10 @@ grails.project.dependency.resolution = {
     }
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
+        mavenLocal()
+        mavenRepo name:'myRepo'
+        inherits true // Whether to inherit repository definitions from plugins
+        grailsRepo "http://grails.org/plugins"
         grailsCentral()
         // uncomment the below to enable remote dependency resolution
         // from public Maven repositories
