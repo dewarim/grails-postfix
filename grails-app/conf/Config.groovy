@@ -22,5 +22,5 @@ log4j = {
     debug 'de.dewarim.postfix'
     warn   'org.mortbay.log'
 }
-grails.views.default.codec="none" // none, html, base64
+grails.views.default.codec="html" // none, html, base64
 grails.views.gsp.encoding="UTF-8"
