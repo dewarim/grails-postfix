@@ -34,6 +34,7 @@ grails.project.dependency.resolution = {
 
         build 'org.codehaus.gpars:gpars:1.0-beta-1'
         runtime 'postgresql:postgresql:9.1-901.jdbc4'
+        compile 'commons-codec:commons-codec:1.5'
     }
 
     plugins {

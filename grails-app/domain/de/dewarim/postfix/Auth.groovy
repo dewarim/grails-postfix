@@ -17,10 +17,13 @@
  */
 package de.dewarim.postfix
 
+import javax.persistence.GenerationType
+
 class Auth {
     
     static mapping = {
         datasource('dovecot_mail')
+//        id generator: GenerationType.IDENTITY
     }
     
     static constraints = {
@@ -28,10 +31,10 @@ class Auth {
     }
     
     String email
-    String mailDir
-    String pwd
+    String password
     String username
     String domain
     Boolean active = true
+    Boolean localEntry = false
     
 }

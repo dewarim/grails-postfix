@@ -17,6 +17,8 @@
  */
 package de.dewarim.postfix
 
+import org.apache.commons.codec.digest.DigestUtils
+
 class MailAccountService {
 
     def grailsApplication
@@ -86,5 +88,18 @@ class MailAccountService {
                 mailDomain: domain
         )
         configActor.sendAndWait(configCommand)
+    }
+    
+    def updateLocalPassword(String name, String domain, String password){
+        Auth auth = Auth.dovecot_mail.find("from Auth a where a.username=:name and a.domain=:domain and a.localEntry = true",
+                [name:name, domain:domain])
+        def pwd = "{SHA256.HEX}${DigestUtils.sha256Hex(password)}"
+        if(auth){
+            auth.password = pwd
+        }
+        else{
+            auth = new Auth(username: name, domain: domain, localEntry: true, email: "${name}@${domain}", password: pwd)
+            auth.save()
+        }
     }
 }
