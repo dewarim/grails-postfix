@@ -91,7 +91,7 @@ class MailAccountService {
     }
     
     def updateLocalPassword(String name, String domain, String password){
-        Auth auth = Auth.dovecot_mail.find("from Auth a where a.username=:name and a.domain=:domain and a.localEntry = true",
+        Auth auth = Auth.dovecot_mail.find("from Auth a where a.username=:name and a.domain=:domain",
                 [name:name, domain:domain])
         def pwd = "{SHA256.HEX}${DigestUtils.sha256Hex(password)}"
         if(auth){

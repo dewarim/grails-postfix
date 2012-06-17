@@ -35,6 +35,5 @@ class Auth {
     String username
     String domain
     Boolean active = true
-    Boolean localEntry = false
     
 }
