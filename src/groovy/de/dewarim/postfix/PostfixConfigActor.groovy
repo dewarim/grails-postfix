@@ -122,7 +122,7 @@ class PostfixConfigActor extends DefaultActor {
                 def auth = new Auth(email: "${command.username}@${command.mailDomain}",
                         domain: command.mailDomain,
                         username: command.username,
-                        pwd: command.passwordHash,
+                        password: command.passwordHash,
                 )
                 auth.save()
             }
