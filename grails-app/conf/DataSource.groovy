@@ -59,5 +59,25 @@ environments {
                validationQuery="SELECT 1"
             }
         }
+
+        dataSource_dovecot_mail{
+            pooled = true
+            driverClassName = "org.postgresql.Driver"
+            url = "jdbc:postgresql://127.0.0.1:5432/dovecot_mail"
+            dialect = "org.hibernate.dialect.PostgreSQLDialect"
+            username = "vs"
+            password = "vs"
+            properties{
+                initialSize = 10
+                maxActive = 500
+                minEvictableIdleTimeMillis=300000
+                timeBetweenEvictionRunsMillis=300000
+                numTestsPerEvictionRun=5
+                testOnBorrow=true
+                testWhileIdle=true
+                testOnReturn=true
+                validationQuery="SELECT 1"
+            }
+        }
     }
 }
