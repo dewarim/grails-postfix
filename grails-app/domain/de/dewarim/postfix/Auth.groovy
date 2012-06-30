@@ -17,8 +17,6 @@
  */
 package de.dewarim.postfix
 
-import javax.persistence.GenerationType
-
 class Auth {
     
     static mapping = {

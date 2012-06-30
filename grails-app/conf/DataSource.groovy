@@ -62,6 +62,7 @@ environments {
 
         dataSource_dovecot_mail{
             pooled = true
+            dbCreate = 'none'
             driverClassName = "org.postgresql.Driver"
             url = "jdbc:postgresql://127.0.0.1:5432/dovecot_mail"
             dialect = "org.hibernate.dialect.PostgreSQLDialect"

@@ -98,7 +98,7 @@ class MailAccountService {
             auth.password = pwd
         }
         else{
-            auth = new Auth(username: name, domain: domain, localEntry: true, email: "${name}@${domain}", password: pwd)
+            auth = new Auth(username: name, domain: domain, email: "${name}@${domain}", password: pwd)
             auth.save()
         }
     }
