@@ -1,0 +1,42 @@
+<plugin name='postfix' version='0.1.8' grailsVersion='2.0 &gt; *'>
+  <author>Ingo Wiarda</author>
+  <authorEmail>ingo_wiarda@dewarim.de</authorEmail>
+  <title>Postfix Plugin</title>
+  <description>Manage user accounts in a Postfix mail server via Grails. 
+</description>
+  <type>PostfixGrailsPlugin</type>
+  <resources>
+    <resource>PostfixDefaultConfig</resource>
+    <resource>de.dewarim.postfix.Auth</resource>
+    <resource>de.dewarim.postfix.MailAccountService</resource>
+  </resources>
+  <repositories>
+    <repository name='myRepo' url='http://repo1.maven.org/maven2/' />
+    <repository name='http://grails.org/plugins' url='http://grails.org/plugins' />
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies>
+    <compile>
+      <dependency group='commons-codec' name='commons-codec' version='1.5' />
+    </compile>
+    <runtime>
+      <dependency group='postgresql' name='postgresql' version='9.1-901.jdbc4' />
+    </runtime>
+    <build>
+      <dependency group='org.codehaus.gpars' name='gpars' version='1.0-beta-1' />
+    </build>
+  </dependencies>
+  <plugins>
+    <compile>
+      <plugin group='org.grails.plugins' name='plugin-config' version='0.1.5' />
+    </compile>
+  </plugins>
+  <runtimePluginRequirements>
+    <plugin name='pluginConfig' version='0.1.4 &gt; *' />
+  </runtimePluginRequirements>
+  <behavior />
+</plugin>
