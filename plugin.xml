@@ -1,4 +1,4 @@
-<plugin name='postfix' version='0.1.9' grailsVersion='2.0 &gt; *'>
+<plugin name='postfix' version='0.2.1' grailsVersion='2.0 &gt; *'>
   <author>Ingo Wiarda</author>
   <authorEmail>ingo_wiarda@dewarim.de</authorEmail>
   <title>Postfix Plugin</title>
@@ -14,7 +14,6 @@
     <repository name='myRepo' url='http://repo1.maven.org/maven2/' />
     <repository name='http://grails.org/plugins' url='http://grails.org/plugins' />
     <repository name='grailsCentral' url='http://grails.org/plugins' />
-    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
     <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
   </repositories>
   <dependencies>
@@ -25,7 +24,7 @@
       <dependency group='postgresql' name='postgresql' version='9.1-901.jdbc4' />
     </runtime>
     <build>
-      <dependency group='org.codehaus.gpars' name='gpars' version='1.0-beta-1' />
+      <dependency group='org.codehaus.gpars' name='gpars' version='1.0.0' />
     </build>
   </dependencies>
   <plugins>
