@@ -32,14 +32,14 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        build 'org.codehaus.gpars:gpars:1.0-beta-1'
+        build 'org.codehaus.gpars:gpars:1.0.0'
         runtime 'postgresql:postgresql:9.1-901.jdbc4'
         compile 'commons-codec:commons-codec:1.5'
     }
 
     plugins {
         build(":tomcat:$grailsVersion",
-              ":release:1.0.0") {
+              ":release:2.2.0") {
             export = false
         }
 
